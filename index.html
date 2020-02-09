@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Java Script</title>
+</head>
+
+<body>
+
+
+  <div class="form-group" id="form-group" hidden>
+
+    <h3>Добавьте товар в список покупок:</h3>
+    <label for="name">Введите название товара:</label>
+    <input type="text" class="shopping-list" id="name">
+    <label for="amount">Введите количество:</label>
+    <input type="number" class="shopping-list" id="amount">
+    <button onclick="addNewItem()" class="btn btn-primary">Добавить</button>
+
+    <h3>Чтобы отметить товар купленным, введите его название:</h3>
+
+    <input type="text" class="shopping-list" id="check">
+    <button onclick="checkTheItem()" class="btn btn-primary">Добавить</button>
+  </div>
+
+
+  <div id="listBlock" hidden>
+    <p>Список покупок:</p>
+    <ul id="list" class="list"></ul>
+  </div>
+
+
+  <table id="table" class="table" hidden>
+    <thead>
+      <tr>
+        <th scope="col">№</th>
+        <th scope="col">Название товара</th>
+        <th scope="col">Стоимость за шт.</th>
+        <th scope="col">Кол-во</th>
+        <th scope="col">Стоимость</th>
+      </tr>
+
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+
+
+
+  <div class="btns" id="btns" hidden>
+
+    <div class="btns-block">
+      <button type="submit" onclick="showClasses()" class="btn">Показать все</button>
+      <button type="submit" onclick="clearAll()" class="btn">Очистить </button>
+      <button type="submit" onclick="sortByAmountOfPlaces()" class="btn">Отсортировать по количеству мест</button>
+      <button type="submit" onclick="sortByNames()" class="btn">Отсортировать по названиям аудиторий </button>
+    </div>
+
+
+    <div class="btns-block">
+      <label for="faculty">Чтобы отсортировать список по факультетам, введите название факультета</label>
+      <input type="text" id="faculty" name="faculty" value="">
+      <button type="submit" onclick="getFaculty()" class="btn">Получить даные</button>
+    </div>
+
+    <div class="btns-block">
+      <label for="group">Чтобы подобрать подходящую аудиторию, заполните форму</label>
+      <input type="text" id="class" value="физика" placeholder="Название аудитории">
+      <input type="text" id="people" value="10" placeholder="Количество мест">
+      <input type="text" id="facultyName" value="Физический факультет" placeholder="Название факультета">
+      <button type="submit" onclick="getGroupOfClasses()" class="btn">Получить даные</button>
+
+    </div>
+  </div>
+
+  <table id="classTable" class="table" hidden>
+    <thead>
+      <tr>
+        <th scope="col">Название аудитории</th>
+        <th scope="col">Количество мест</th>
+        <th scope="col">Факультет</th>
+      </tr>
+
+    </thead>
+    <tbody>
+
+    </tbody>
+
+  </table>
+
+
+
+  <script src="js/04_сlassroom.js"></script>
+  <!-- <script src="js/02_check.js"></script> -->
+  <!-- <script src="js/04_сlassroom.js"></script> -->
+</body>
+
+</html>
