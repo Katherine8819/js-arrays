@@ -1,120 +1,122 @@
-let shoppingList = [
-    { name: "Молоко", amount: 2, buyStatus: true },
-    { name: "Мука", amount: 3, buyStatus: false },
-    { name: "Хлеб", amount: 1, buyStatus: false },
-    { name: "Яйца", amount: 10, buyStatus: true },
-    { name: "Масло", amount: 2, buyStatus: true }
+let classList = [
+    { name: "b", amount: 10, faculty: "Physics" },
+    { name: "n", amount: 18, faculty: "Art" },
+    { name: "a", amount: 15, faculty: "Art" },
+    { name: "r", amount: 12, faculty: "Chemistry" },
+    { name: "y", amount: 11, faculty: "Art" },
+    { name: "d", amount: 16, faculty: "Physics" },
 ];
 
-document.getElementById('form-group').removeAttribute("hidden");
-document.getElementById('listBlock').removeAttribute('hidden');
+let classTable = document.getElementById('classTable');
+classTable.removeAttribute("hidden");
 
-document.getElementById('btns').style.display = 'none';
+document.getElementById('btns').removeAttribute("hidden");
 
-let checkedEmoji = String.fromCodePoint(0x2714),
-    unCheckedEmoji = String.fromCodePoint(0x2716)
+let tbody = classTable.querySelector('tbody'),
+    tr = ``;
 
-let list = document.getElementById('list'),
-    checkBlock = ``;
-
-let newArray = [];
-
-function showList(shoppingList) {
-
-    for (let i = 0; i < shoppingList.length; i++) {
-
-        if (shoppingList[i].buyStatus) {
-            newArray.unshift(shoppingList[i]);
-        } else {
-            newArray.push(shoppingList[i]);
-        }
-    }
-
-    for (let j = 0; j < newArray.length; j++) {
-        let message = '';
-        if (newArray[j].buyStatus) {
-            message = checkedEmoji;
-        } else {
-            message = unCheckedEmoji;
-        }
-        checkBlock = `<ul><li>${newArray[j].name} - ${newArray[j].amount} шт. ${message}</li></ul>`;
-        list.innerHTML = list.innerHTML + checkBlock;
-    }
+function showClassrooms() {
+    clearAll()
+    printInTable(classList)
 }
 
-function addNewItem() {
+function showFaculty(faculty) {
+    faculty = document.getElementById('faculty').value
+    clearAll()
 
-    let newName = document.getElementById('name').value;
-    let newAmount = Number(document.getElementById('amount').value);
+    let chosenFaculty = [];
 
-    console.log(newArray)
+    for (let j = 0; j < classList.length; j++) {
+        if (classList[j].faculty == faculty) {
 
-    let message = '';
-    for (let j = 0; j < newArray.length; j++) {
-
-        if (newArray[j].buyStatus) {
-            message = checkedEmoji;
-        } else {
-            message = unCheckedEmoji;
+            chosenFaculty.push(classList[j])
         }
+    }
+    printInTable(chosenFaculty)
+}
 
-        // console.log('Array ' + newArray[j].name)
-        // console.log('Name ' + newName)
+function showChosenGroup(className, studentsAmount, facultyName) {
 
-        if (newArray[j].name === newName) {
-            newArray[j].amount += newAmount;
-            newArray.splice([j], 1)
-            console.log([j])
+    className = document.getElementById('className').value;
+    studentsAmount = document.getElementById('studentsAmount').value;
+    facultyName = document.getElementById('facultyName').value;
 
-            console.log('1')
+    clearAll()
 
-        } else {
-            newArray.push({ name: newName, amount: newAmount, buyStatus: false })
+    let chosenGroup = []
 
+    for (let j = 0; j < classList.length; j++) {
+        if (className == classList[j].name &&
+            studentsAmount == classList[j].amount &&
+            facultyName == classList[j].faculty) {
 
-            console.log('2')
+            chosenGroup.push(classList[j])
         }
     }
 
-
-    checkBlock = `<ul><li>${newArray[newArray.length - 1].name} - ${newArray[newArray.length - 1].amount} шт. ${message}</li></ul>`;
-    list.innerHTML += checkBlock;
-
+    printInTable(chosenGroup)
 
 }
 
-function checkTheItem() {
-    let checkedItem = ''
-    checkedItem = document.getElementById('check').value;
+function sortByAmount() {
 
-    let message = '';
+    clearAll()
 
-    let checkBlock = '';
-    for (let c = 0; c < newArray.length; c++) {
+    let sortedByAmount = classList.slice()
 
-        if (newArray[c].name.indexOf(checkedItem) != -1) {
-            newArray[c].buyStatus = true
-        }
+    sortedByAmount.sort(function (a, b) {
+        return a.amount - b.amount
+    })
 
-        if (newArray[c].buyStatus) {
-            message = checkedEmoji;
-        } else {
-            message = unCheckedEmoji;
-        }
-
-        checkBlock += `<ul><li>${newArray[c].name} - ${newArray[c].amount} шт. ${message}</li></ul>`;
-    }
-
-    list.innerHTML = checkBlock;
-
+    printInTable(sortedByAmount)
 }
 
-showList(shoppingList)
+
+function sortByName() {
+    clearAll()
+
+    let sortedByName = classList.slice()
+
+    sortedByName.sort(function (a, b) {
+        let nameA = a.name.toLowerCase(),
+            nameB = b.name.toLowerCase()
+
+        if (nameA < nameB)
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0
+    })
+
+    printInTable(sortedByName)
+}
+
+function clearAll() {
+    tr = ``
+    tbody.innerHTML = tr;
+}
+
+function printInTable(array) {
+
+    for (let i = 0; i < array.length; i++) {
+        tr = `
+    <tr>
+        <td>${array[i].name}</td>
+        <td>${array[i].amount}</td>
+        <td>${array[i].faculty}</td>
+    </tr>`
+
+        tbody.innerHTML += tr;
+    }
+}
 
 
 
-/* Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необходимое количество и куплен или нет. Написать несколько функций для работы с таким массивом.
 
-Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.
-Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом, необходимо увеличивать количество в существующей покупке, а не добавлять новую.
-Покупка продукта. Функция принимает название продукта и отмечает его как купленный.*/
+/*Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и названия факультета, для которого она предназначена. Написать несколько функций для работы с ним^
+
+Вывод на экран всех аудиторий;
+Вывод на экран аудиторий для указанного факультета;
+Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия, количества студентов и названия факультета;
+Функция сортировки аудиторий по количеству мест;
+Функция сортировки аудиторий по названию (по алфавиту). */

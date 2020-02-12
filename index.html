@@ -58,25 +58,25 @@
   <div class="btns" id="btns" hidden>
 
     <div class="btns-block">
-      <button type="submit" onclick="showClasses()" class="btn">Показать все</button>
+      <button type="submit" onclick="showClassrooms()" class="btn">Показать все</button>
       <button type="submit" onclick="clearAll()" class="btn">Очистить </button>
-      <button type="submit" onclick="sortByAmountOfPlaces()" class="btn">Отсортировать по количеству мест</button>
-      <button type="submit" onclick="sortByNames()" class="btn">Отсортировать по названиям аудиторий </button>
+      <button type="submit" onclick="sortByAmount()" class="btn">Отсортировать по количеству мест</button>
+      <button type="submit" onclick="sortByName()" class="btn">Отсортировать по названиям аудиторий </button>
     </div>
 
 
     <div class="btns-block">
       <label for="faculty">Чтобы отсортировать список по факультетам, введите название факультета</label>
-      <input type="text" id="faculty" name="faculty" value="">
-      <button type="submit" onclick="getFaculty()" class="btn">Получить даные</button>
+      <input type="text" id="faculty" value="Physics" name="faculty">
+      <button type="submit" onclick="showFaculty()" class="btn">Получить даные</button>
     </div>
 
     <div class="btns-block">
       <label for="group">Чтобы подобрать подходящую аудиторию, заполните форму</label>
-      <input type="text" id="class" value="физика" placeholder="Название аудитории">
-      <input type="text" id="people" value="10" placeholder="Количество мест">
-      <input type="text" id="facultyName" value="Физический факультет" placeholder="Название факультета">
-      <button type="submit" onclick="getGroupOfClasses()" class="btn">Получить даные</button>
+      <input type="text" id="className" value="n" placeholder="Название аудитории">
+      <input type="text" id="studentsAmount" value="18" placeholder="Количество мест">
+      <input type="text" id="facultyName" value="Art" placeholder="Название факультета">
+      <button type="submit" onclick="showChosenGroup()" class="btn">Получить даные</button>
 
     </div>
   </div>
@@ -98,9 +98,9 @@
 
 
 
-  <script src="js/04_сlassroom.js"></script>
+  <!-- <script src="js/01_shopping-list.js"></script> -->
   <!-- <script src="js/02_check.js"></script> -->
-  <!-- <script src="js/04_сlassroom.js"></script> -->
+  <script src="js/04_сlassroom.js"></script>
 </body>
 
 </html>
