@@ -8,9 +8,10 @@ let classList = [
 ];
 
 let classTable = document.getElementById('classTable');
-classTable.removeAttribute("hidden");
+document.getElementById('third-task').removeAttribute("hidden");
 
-document.getElementById('btns').removeAttribute("hidden");
+document.getElementById('first-task').style.display = 'none'
+
 
 let tbody = classTable.querySelector('tbody'),
     tr = ``;

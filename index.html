@@ -15,96 +15,99 @@
 
 
   <div class="first-task" id="first-task" hidden>
-    <div class="form-group" id="form-group">
+    <div class="form" id="form-group">
 
-      <div class="">
-        <h3>Добавьте товар в список покупок:</h3>
-        <label for="name">Введите название товара:</label>
-        <input type="text" class="shopping-list" id="name">
-        <label for="amount">Введите количество:</label>
-        <input type="number" class="shopping-list" id="amount">
-        <button onclick="addNewItem()" class="btn btn-primary">Добавить</button>
+      <div class="form__add">
+        <h3 class="form__title">Добавьте товар в список покупок:</h3>
+        <input type="text" class="form__input" id="name" placeholder="Введите название товара...">
+        <input type="number" class="form__input" id="amount" placeholder="Кол-во">
+        <button onclick="addNewItem()" class="btn btn-form">Добавить</button>
       </div>
 
-      <h3>Чтобы отметить товар купленным, введите его название:</h3>
-
-      <input type="text" class="shopping-list" id="check">
-      <button onclick="checkTheItem()" class="btn btn-primary">Добавить</button>
+      <div class="form__check">
+        <h3 class="form__title">Чтобы отметить товар купленным, введите его название:</h3>
+        <input type="text" class="form__input" id="check" placeholder="Введите название товара...">
+        <button onclick="checkTheItem()" class="btn btn-form">Отметить</button>
+      </div>
     </div>
 
 
-    <div id="listBlock">
-      <p>Список покупок:</p>
-      <ul id="list" class="list"></ul>
-    </div>
-  </div>
-
-
-  <table id="table" class="table" hidden>
-    <thead>
-      <tr>
-        <th scope="col">№</th>
-        <th scope="col">Название товара</th>
-        <th scope="col">Стоимость за шт.</th>
-        <th scope="col">Кол-во</th>
-        <th scope="col">Стоимость</th>
-      </tr>
-
-    </thead>
-    <tbody>
-
-    </tbody>
-  </table>
-
-
-
-
-  <div class="btns" id="btns" hidden>
-
-    <div class="btns-block">
-      <button type="submit" onclick="showClassrooms()" class="btn">Показать все</button>
-      <button type="submit" onclick="clearAll()" class="btn">Очистить </button>
-      <button type="submit" onclick="sortByAmount()" class="btn">Отсортировать по количеству мест</button>
-      <button type="submit" onclick="sortByName()" class="btn">Отсортировать по названиям аудиторий </button>
-    </div>
-
-
-    <div class="btns-block">
-      <label for="faculty">Чтобы отсортировать список по факультетам, введите название факультета</label>
-      <input type="text" id="faculty" value="Physics" name="faculty">
-      <button type="submit" onclick="showFaculty()" class="btn">Получить даные</button>
-    </div>
-
-    <div class="btns-block">
-      <label for="group">Чтобы подобрать подходящую аудиторию, заполните форму</label>
-      <input type="text" id="className" value="n" placeholder="Название аудитории">
-      <input type="text" id="studentsAmount" value="18" placeholder="Количество мест">
-      <input type="text" id="facultyName" value="Art" placeholder="Название факультета">
-      <button type="submit" onclick="showChosenGroup()" class="btn">Получить даные</button>
-
+    <div id="listBlock" class="list">
+      <!-- <h3 class="form__title">Список покупок:</h3> -->
+      <ul id="list" class="list__items"></ul>
     </div>
   </div>
 
-  <table id="classTable" class="table" hidden>
-    <thead>
-      <tr>
-        <th scope="col">Название аудитории</th>
-        <th scope="col">Количество мест</th>
-        <th scope="col">Факультет</th>
-      </tr>
 
-    </thead>
-    <tbody>
+  <div class="second-task" id="second-task" hidden>
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Название товара</th>
+          <th scope="col">Стоимость за шт.</th>
+          <th scope="col">Кол-во</th>
+          <th scope="col">Стоимость</th>
+        </tr>
 
-    </tbody>
+      </thead>
+      <tbody>
 
-  </table>
+      </tbody>
+    </table>
+  </div>
 
 
 
-  <script src="js/01_shopping-list.js"></script>
+
+  <div class="third-task" id="third-task" hidden>
+    <div class="btns" id="btns">
+
+      <div class="btns-block">
+        <button type="submit" onclick="showClassrooms()" class="btn">Показать все</button>
+        <button type="submit" onclick="clearAll()" class="btn">Очистить </button>
+        <button type="submit" onclick="sortByAmount()" class="btn">Отсортировать по количеству мест</button>
+        <button type="submit" onclick="sortByName()" class="btn">Отсортировать по названиям аудиторий </button>
+      </div>
+
+
+      <div class="btns-block">
+        <label for="faculty">Чтобы отсортировать список по факультетам, введите название факультета</label>
+        <input type="text" id="faculty" value="Physics" name="faculty">
+        <button type="submit" onclick="showFaculty()" class="btn">Получить даные</button>
+      </div>
+
+      <div class="btns-block">
+        <label for="group">Чтобы подобрать подходящую аудиторию, заполните форму</label>
+        <input type="text" id="className" value="n" placeholder="Название аудитории">
+        <input type="text" id="studentsAmount" value="18" placeholder="Количество мест">
+        <input type="text" id="facultyName" value="Art" placeholder="Название факультета">
+        <button type="submit" onclick="showChosenGroup()" class="btn">Получить даные</button>
+
+      </div>
+    </div>
+
+    <table id="classTable" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Название аудитории</th>
+          <th scope="col">Количество мест</th>
+          <th scope="col">Факультет</th>
+        </tr>
+
+      </thead>
+      <tbody>
+
+      </tbody>
+
+    </table>
+  </div>
+
+
+
+  <!-- <script src="js/01_shopping-list.js"></script> -->
   <!-- <script src="js/02_check.js"></script> -->
-  <!-- <script src="js/04_сlassroom.js"></script> -->
+  <script src="js/04_сlassroom.js"></script>
 </body>
 
 </html>

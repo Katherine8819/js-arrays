@@ -9,9 +9,9 @@
     ]
 
     let table = document.getElementById('table');
-    table.removeAttribute("hidden");
+    document.getElementById('second-task').removeAttribute('hidden')
 
-    document.getElementById('btns').style.display = 'none'
+    document.getElementById('first-task').style.display = 'none'
 
     let tbody = table.querySelector('tbody'),
         tr = ``;

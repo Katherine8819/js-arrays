@@ -29,13 +29,13 @@ function showAndSortList() {
 
 function addNewItem() {
     let newName = document.getElementById('name').value;
-    let newAmount = document.getElementById('amount').value;
+    let newAmount = Number(document.getElementById('amount').value);
 
     let checkTheArray = false;
 
     for (let j = 0; j < newArray.length; j++) {
         if (newName == newArray[j].name) {
-            newArray[j].amount += Number(newAmount);
+            newArray[j].amount += newAmount;
             checkTheArray = true;
             newArray[j].buyStatus = false
         }
@@ -70,7 +70,7 @@ function printTheList(array) {
         } else {
             message = unCheckedEmoji;
         }
-        checkBlock = `<ul><li>${array[i].name} - ${array[i].amount} шт. ${message}</li></ul>`;
+        checkBlock = `<ul><li>${message} ${array[i].name} - ${array[i].amount} шт.</li></ul>`;
         list.innerHTML = list.innerHTML + checkBlock;
     }
 }

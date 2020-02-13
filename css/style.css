@@ -31,10 +31,99 @@ p {
   width: 70%;
 }
 
+.btn {
+  font-size: 0.8rem;
+  border: 2px solid;
+  background-color: transparent;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  transition: all 0.25s ease-in;
+}
 
+.btn-form {
+  border-color: #03a803;
+  background-color: #03a803;
+  color: #fff;
+}
+
+.btn-form:hover,
+.btn-form:focus,
+.btn-form:active {
+  border-radius: 25px;
+  border-color: #03a803;
+  background-color: transparent;
+  color: #0d0d0d;
+}
+
+.first-task {
+  height: 100vh;
+ 
+  display: flex;
+  justify-content:center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  margin-top: 150px;
+}
+
+.form__add {
+ 
+}
+
+.form__check {
+  
+}
+
+.form__title {
+  font-size: 1rem;
+  color: #5a5959;
+  padding: 10px;
+  margin: 20px 10px 10px 10px;
+  
+}
+
+.form__input {
+  display: inline-block;
+  outline: none;
+  border: none;
+  margin: 10px;
+  border-bottom: 3px solid #03a803;
+  transition: all 0.25s ease-in-out;
+  background-color: transparent;
+}
+
+.form__add .form__input:nth-child(3) {
+  width: 100px;
+}
+
+.form__input:focus {
+  border-bottom: 2px solid #8ace8a;
+}
+
+.list {
+  padding: 30px;
+  max-height: 50vh;
+ 
+  margin-top: 150px;  
+}
+
+ul {
+  padding: 0;
+}
+
+.list__items li {
+  font-size: 1.5rem;
+  padding: 0;
+  list-style-type: none;  
+}
 
 .total {
-  
   text-align: right;
   font-weight: 700;
 }
@@ -55,25 +144,12 @@ th {
   width: 5%
 }
 
-
-
 input,  label{
   display: block;
   margin: 10px;
   padding: 10px;
   width: 300px;
   font-size: 0.8rem;
-}
-
-.btn {
-  font-size: 0.8rem;
-  border: 2px solid black ;
-  background-color: #fff;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 10px;
-  outline: none;
 }
 
 
