@@ -28,7 +28,8 @@ table {
 }
 
 p {
-  width: 70%;
+  width: 60%;
+  margin: 10px auto;
 }
 
 .btn {
@@ -60,7 +61,6 @@ p {
 
 .first-task {
   height: 100vh;
- 
   display: flex;
   justify-content:center;
 }
@@ -70,14 +70,6 @@ p {
   flex-direction: column;
   margin-right: 50px;
   margin-top: 150px;
-}
-
-.form__add {
- 
-}
-
-.form__check {
-  
 }
 
 .form__title {
@@ -123,6 +115,12 @@ ul {
   list-style-type: none;  
 }
 
+.second-task {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 50px;
+}
+
 .total {
   text-align: right;
   font-weight: 700;
@@ -144,6 +142,11 @@ th {
   width: 5%
 }
 
+.third-task {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
 input,  label{
   display: block;
   margin: 10px;
@@ -151,7 +154,6 @@ input,  label{
   width: 300px;
   font-size: 0.8rem;
 }
-
 
 .btns {
   display: flex;
