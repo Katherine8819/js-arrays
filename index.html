@@ -14,25 +14,29 @@
 <body>
 
 
-  <div class="form-group" id="form-group" hidden>
+  <div class="first-task" id="first-task" hidden>
+    <div class="form-group" id="form-group">
 
-    <h3>Добавьте товар в список покупок:</h3>
-    <label for="name">Введите название товара:</label>
-    <input type="text" class="shopping-list" id="name">
-    <label for="amount">Введите количество:</label>
-    <input type="number" class="shopping-list" id="amount">
-    <button onclick="addNewItem()" class="btn btn-primary">Добавить</button>
+      <div class="">
+        <h3>Добавьте товар в список покупок:</h3>
+        <label for="name">Введите название товара:</label>
+        <input type="text" class="shopping-list" id="name">
+        <label for="amount">Введите количество:</label>
+        <input type="number" class="shopping-list" id="amount">
+        <button onclick="addNewItem()" class="btn btn-primary">Добавить</button>
+      </div>
 
-    <h3>Чтобы отметить товар купленным, введите его название:</h3>
+      <h3>Чтобы отметить товар купленным, введите его название:</h3>
 
-    <input type="text" class="shopping-list" id="check">
-    <button onclick="checkTheItem()" class="btn btn-primary">Добавить</button>
-  </div>
+      <input type="text" class="shopping-list" id="check">
+      <button onclick="checkTheItem()" class="btn btn-primary">Добавить</button>
+    </div>
 
 
-  <div id="listBlock" hidden>
-    <p>Список покупок:</p>
-    <ul id="list" class="list"></ul>
+    <div id="listBlock">
+      <p>Список покупок:</p>
+      <ul id="list" class="list"></ul>
+    </div>
   </div>
 
 
@@ -98,8 +102,7 @@
 
 
 
-  <!-- <script src="js/01_shopping-list.js"></script> -->
-  <script src="js/shopping.js"></script>
+  <script src="js/01_shopping-list.js"></script>
   <!-- <script src="js/02_check.js"></script> -->
   <!-- <script src="js/04_сlassroom.js"></script> -->
 </body>

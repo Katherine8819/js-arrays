@@ -6,8 +6,7 @@ let shoppingList = [
     { name: "Масло", amount: 2, buyStatus: true }
 ];
 
-document.getElementById('form-group').removeAttribute("hidden");
-document.getElementById('listBlock').removeAttribute('hidden');
+document.getElementById('first-task').removeAttribute("hidden");
 
 document.getElementById('btns').style.display = 'none';
 
@@ -17,17 +16,14 @@ let checkedEmoji = String.fromCodePoint(0x2714),
 let list = document.getElementById('list'),
     checkBlock = ``;
 
-let newArray = [];
+let newArray = shoppingList.slice();
 
-function showAndSortList(shoppingList) {
-    for (let j = 0; j < shoppingList.length; j++) {
+function showAndSortList() {
 
-        if (shoppingList[j].buyStatus) {
-            newArray.unshift(shoppingList[j]);
-        } else {
-            newArray.push(shoppingList[j]);
-        }
-    }
+    newArray.sort(function (a, b) {
+        return b.buyStatus - a.buyStatus
+    });
+
     printTheList(newArray)
 }
 
@@ -35,8 +31,33 @@ function addNewItem() {
     let newName = document.getElementById('name').value;
     let newAmount = document.getElementById('amount').value;
 
-    newArray.push({ name: newName, amount: newAmount, buyStatus: false })
-    printTheList(newArray)
+    let checkTheArray = false;
+
+    for (let j = 0; j < newArray.length; j++) {
+        if (newName == newArray[j].name) {
+            newArray[j].amount += Number(newAmount);
+            checkTheArray = true;
+            newArray[j].buyStatus = false
+        }
+    }
+
+    if (checkTheArray == false) {
+        newArray.push({ name: newName, amount: newAmount, buyStatus: false })
+    }
+
+    showAndSortList()
+}
+
+function checkTheItem() {
+    let checkedItem = document.getElementById('check').value;
+
+    for (let j = 0; j < newArray.length; j++) {
+
+        if (newArray[j].name.indexOf(checkedItem) != -1) {
+            newArray[j].buyStatus = true
+        }
+    }
+    showAndSortList()
 }
 
 function printTheList(array) {
